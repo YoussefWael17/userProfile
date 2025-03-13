@@ -1,0 +1,31 @@
+<h3 class="text-4xl text-black font-bold mb-10 mt-10 ml-[10%]">Users</h3>
+
+<div class="flex flex-row gap-3 w-[80%] ml-[10%] mb-10 justify-center">
+    <input type="search" name="search" id="" placeholder="Search User" class="w-[85%] h-[7vh] pl-2 border-2">
+    <button class="bg-[#0b6374] hover:bg-[#1b2c30] text-white font-bold py-2 px-10 rounded">
+        Search
+      </button>
+</div>
+
+<div class="flex flex-row gap-3 w-[80%] ml-[10%] flex-wrap justify-center">
+    @for (user of users ; track user.id){
+        <div class="bg-gray-200 flex flex-col gap-2 w-[48%] justify-center items-center py-2 border-[#0b6374] border-1 rounded-2xl">
+            <div class="h-30 w-30 rounded-full bg-white flex justify-center items-center border-[#0b6374] border-2 ">
+                <img [src]="user.image" alt="" class="h-25 w-30">
+            </div>
+            <div class="w-[15%] flex justify-between items-center">
+                <span>{{user.username}}</span>
+                @if (user.is_verified === false){
+                    <i class="fa fa-bell text-red-900"></i>
+                    <i class="fa fa-face-smile"></i>
+                }
+                @else{
+                    <i class="fa fa-bell text-cyan-800"></i>
+                }
+            </div>
+            
+            <span>{{user.email}}</span>
+            <span>{{user.phone}}</span>
+        </div>
+    }
+</div>
